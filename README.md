@@ -38,6 +38,11 @@ class Activity
 
   belongs_to :subject, polymorphic: true
   belongs_to :creator, polymorphic: true
+
+  def initialize(*args)
+    @association_cache = {}
+    super
+  end
 end
 
 message = Message.create
