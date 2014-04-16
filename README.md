@@ -48,7 +48,13 @@ end
 message = Message.create
 user    = User.create
 
-activity = Activity.new(action: 'message.sent', creator_type: 'User', creator_id: user.id, subject_type: 'Message', subject_id: message.id)
+activity = Activity.new(
+  action: 'message.sent',
+  creator_type: 'User',
+  creator_id: user.id,
+  subject_type: 'Message',
+  subject_id: message.id
+)
 
 activity.subject
 # => #<Message @id=1>
