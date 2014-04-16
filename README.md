@@ -1,6 +1,6 @@
 # ActiveRecord::Poro
 
-This gem allows for plain old ruby objects to have associations into your ActiveRecord models.
+This gem allows for plain old ruby objects to be associated with your ActiveRecord models.
 
 ## Installation
 
