@@ -1,6 +1,6 @@
-# Activerecord::Poro
+# ActiveRecord::Poro
 
-TODO: Write a gem description
+Associations for plain old ruby objects.
 
 ## Installation
 
@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class User < ActiveRecord::Base
+end
+```
 
 ## Contributing
 
