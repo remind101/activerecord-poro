@@ -1,6 +1,6 @@
 # ActiveRecord::Poro
 
-Associations for plain old ruby objects.
+This gem allows for plain old ruby objects to have associations into your ActiveRecord models.
 
 ## Installation
 
@@ -21,6 +21,35 @@ Or install it yourself as:
 ```ruby
 class User < ActiveRecord::Base
 end
+
+class Message < ActiveRecord::Base
+end
+
+class Activity
+  include Virtus.model
+
+  attribute :action, String
+  
+  attribute :subject_type, String
+  attribute :subject_id, Integer
+
+  attribute :creator_type, String
+  attribute :creator_id, Integer
+
+  belongs_to :subject, polymorphic: true
+  belongs_to :creator, polymorphic: true
+end
+
+message = Message.create
+user    = User.create
+
+activity = Activity.new(action: 'message.sent', creator_type: 'User', creator_id: user.id, subject_type: 'Message', subject_id: message.id)
+
+activity.subject
+# => #<Message @id=1>
+
+activity.creator
+# => #<User @id=1>
 ```
 
 ## Contributing
